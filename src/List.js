@@ -4,11 +4,9 @@ import Card from './Card.js';
 
 
 function List(props) {
-
-
 const CardComponent = [];
 
-for(let i = 0; i <= props.cardsArray.length; i++) {
+for(let i = 0; i < props.cardsArray.length; i++) {
   for(let j =0; j < props.cardsObj.length; j++) {
     if(props.cardsArray[i] === props.cardsObj[j].id){
       CardComponent.push(<Card title={props.cardsObj[j].title}
@@ -22,8 +20,6 @@ for(let i = 0; i <= props.cardsArray.length; i++) {
     
   }
 }
-
-  console.log(CardComponent)
 
   return (
     <section className="List">
