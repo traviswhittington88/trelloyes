@@ -4,22 +4,6 @@ import Card from './Card.js';
 
 
 function List(props) {
-const CardComponent = [];
-
-for(let i = 0; i < props.cardsArray.length; i++) {
-  for(let j =0; j < props.cardsObj.length; j++) {
-    if(props.cardsArray[i] === props.cardsObj[j].id){
-      CardComponent.push(<Card title={props.cardsObj[j].title}
-        content = {props.cardsObj[j].content}
-        key = {props.cardsObj[j].id}/>)
-        i = i+1;
-    }
-    else{
-      j=+j;
-    }
-    
-  }
-}
 
   return (
     <section className="List">
@@ -27,7 +11,23 @@ for(let i = 0; i < props.cardsArray.length; i++) {
         <h2>{props.header}</h2>
       </header>
       <div className="List-cards">
-        {CardComponent}
+        {props.cards.map((card) =>
+          <Card 
+            key={card.id}
+            cardId={card.id}
+            listId={props.listId}
+            title={card.title}
+            content={card.content}
+            onDelete={props.onDelete}
+            />
+          )}
+         <button 
+          type='button'
+          className='List-add-button'
+          onClick={() => props.onRandom()}
+          > 
+          + Add Random Card
+          </button>
       </div>
     </section>
 

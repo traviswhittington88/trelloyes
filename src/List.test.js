@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import List from './List';
 import renderer from 'react-test-renderer';
-import { isTSAnyKeyword, exportAllDeclaration } from '@babel/types';
+
 
 describe('List component', () => {
     //smoke tests
@@ -15,7 +15,7 @@ describe('List component', () => {
 
     it('renders to the UI as expected', () => {
         const tree = renderer
-            .create(<List header={'List A'} key={1} cardsArray={'a'} cardsObj={{a:'could be anything'}}/>)
+            .create(<List header={'List A'} key={1} cardsArray={{}} cardsObj={{a:'could be anything'}}/>)
             .toJSON();
             expect(tree).toMatchSnapshot();
     });
